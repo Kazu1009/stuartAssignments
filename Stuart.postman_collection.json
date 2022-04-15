@@ -1,0 +1,51 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Stuart",
+		"_postman_id": "8909abb1-b346-b555-c107-8ff92dc173ef",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/couriers",
+			"request": {
+				"url": "http://localhost:3000/couriers",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": 1234,\n\t\"max_capacity\": 5\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/couriers/lookup",
+			"request": {
+				"url": "http://localhost:3000/couriers",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": 1234,\n\t\"max_capacity\": 5\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
