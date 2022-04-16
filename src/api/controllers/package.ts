@@ -1,13 +1,13 @@
 import { Router, Request, Response } from 'express'
-import { CourierService } from "../services/courierService"
+import { PackageService } from "../services/packageService"
 
-const couriersRouter = Router()
-const courierService: CourierService = new CourierService()
+const packagesRouter = Router()
+const packageService: PackageService = new PackageService()
 
-couriersRouter.get("/:courierId", async (req: Request, res: Response) => {
-    const data: number = Number.parseInt(req.params.courierId, 10);
+packagesRouter.get("/:packageId", async (req: Request, res: Response) => {
+    const data: number = Number.parseInt(req.params.packageId, 10);
     try {
-        const result = await courierService.getCourier(data);
+        const result = await packageService.getPackage(data);
         return res.json(result);
     } catch (err) {
         // tslint:disable-next-line:no-console
@@ -16,10 +16,10 @@ couriersRouter.get("/:courierId", async (req: Request, res: Response) => {
     }
 });
 
-couriersRouter.post("/", async (req: Request, res: Response) => {
+packagesRouter.post("/", async (req: Request, res: Response) => {
     const data: any = req.body;
     try {
-        const result = await courierService.addCourier(data);
+        const result = await packageService.addPackage(data);
         return res.json(result);
     } catch (err) {
         // tslint:disable-next-line:no-console
@@ -28,10 +28,10 @@ couriersRouter.post("/", async (req: Request, res: Response) => {
     }
 });
 
-couriersRouter.delete("/", async (req: Request, res: Response) => {
+packagesRouter.put("/assigncourier", async (req: Request, res: Response) => {
     const data: any = req.body;
     try {
-        const result = await courierService.deleteCourier(data);
+        const result = await packageService.assignPackageToCourier(data);
         return res.json(result);
     } catch (err) {
         // tslint:disable-next-line:no-console
@@ -40,10 +40,10 @@ couriersRouter.delete("/", async (req: Request, res: Response) => {
     }
 });
 
-couriersRouter.put("/", async (req: Request, res: Response) => {
+packagesRouter.put("/deliver", async (req: Request, res: Response) => {
     const data: any = req.body;
     try {
-        const result = await courierService.updateCourierCapacity(data);
+        const result = await packageService.deliverPackage(data);
         return res.json(result);
     } catch (err) {
         // tslint:disable-next-line:no-console
@@ -52,10 +52,10 @@ couriersRouter.put("/", async (req: Request, res: Response) => {
     }
 });
 
-couriersRouter.post("/lookup", async (req: Request, res: Response) => {
+packagesRouter.delete("/", async (req: Request, res: Response) => {
     const data: any = req.body;
     try {
-        const result = await courierService.lookUpCouriers(data);
+        const result = await packageService.deletePackage(data);
         return res.json(result);
     } catch (err) {
         // tslint:disable-next-line:no-console
@@ -64,4 +64,4 @@ couriersRouter.post("/lookup", async (req: Request, res: Response) => {
     }
 });
 
-export default couriersRouter
+export default packagesRouter

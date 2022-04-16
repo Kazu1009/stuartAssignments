@@ -2,6 +2,16 @@ import * as couriersDAL from "../dal/couriers"
 
 export class CourierService {
 
+    async getCourier(id: number): Promise<Courier | any> {
+        const courierExists = await couriersDAL.getById(id);
+        if (!courierExists) {
+            const err: ErrorObj = {code: 1, message: "Courier not found"}
+            return err;
+        } else {
+            return courierExists;
+        }
+    }
+
     async addCourier(data: Courier): Promise<Courier | any> {
         const courierExists = await couriersDAL.getById(data.id);
         if (courierExists) {
@@ -15,7 +25,7 @@ export class CourierService {
     }
 
     async deleteCourier(data: CourierDelete): Promise<Courier | any> {
-        const courierExists = await await couriersDAL.getById(data.id);
+        const courierExists = await couriersDAL.getById(data.id);
         if (!courierExists) {
             const err: ErrorObj = {code: 1, message: "Courier not found"}
             return err;
@@ -27,7 +37,7 @@ export class CourierService {
     }
 
     async updateCourierCapacity(data: Courier): Promise<Courier | any> {
-        const courierExists = await await couriersDAL.getById(data.id);
+        const courierExists = await couriersDAL.getById(data.id);
         if (!courierExists) {
             const err: ErrorObj = {code: 1, message: "Courier not found"}
             return err;
@@ -39,7 +49,7 @@ export class CourierService {
     }
 
     async lookUpCouriers(data: CourierGetByCapacity): Promise<Courier[]> {
-        const couriers: Courier[] = await couriersDAL.getByMinCapacity(data);
+        const couriers: Courier[] = await couriersDAL.getByMinCapacity(data.capacity_required);
         // toDo: save logs
         return couriers;
     }
