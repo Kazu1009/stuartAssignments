@@ -6,3 +6,7 @@ interface Courier {
 interface CourierGetByCapacity {
     capacity_required: number
 }
+
+interface CourierDelete {
+    id: number,
+}

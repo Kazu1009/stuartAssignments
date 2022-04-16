@@ -1,13 +1,14 @@
 import { Router, Request, Response } from 'express'
 import * as couriers from "../dal/couriers"
+import { CourierService } from "../services/courierService"
 
 const couriersRouter = Router()
-
+const courierService: CourierService = new CourierService()
 
 couriersRouter.post("/", async (req: Request, res: Response) => {
     const data: any = req.body;
     try {
-        const result = await couriers.createCourier(data);
+        const result = await courierService.addCourier(data);
         return res.json(result);
     } catch (err) {
         // tslint:disable-next-line:no-console
@@ -19,7 +20,7 @@ couriersRouter.post("/", async (req: Request, res: Response) => {
 couriersRouter.delete("/", async (req: Request, res: Response) => {
     const data: any = req.body;
     try {
-        const result = await couriers.deleteCourier(data);
+        const result = await courierService.deleteCourier(data);
         return res.json(result);
     } catch (err) {
         // tslint:disable-next-line:no-console
@@ -31,7 +32,7 @@ couriersRouter.delete("/", async (req: Request, res: Response) => {
 couriersRouter.put("/", async (req: Request, res: Response) => {
     const data: any = req.body;
     try {
-        const result = await couriers.updateCapacity(data);
+        const result = await courierService.updateCourierCapacity(data);
         return res.json(result);
     } catch (err) {
         // tslint:disable-next-line:no-console
@@ -43,7 +44,7 @@ couriersRouter.put("/", async (req: Request, res: Response) => {
 couriersRouter.post("/lookup", async (req: Request, res: Response) => {
     const data: any = req.body;
     try {
-        const result = await couriers.getByMinCapacity(data);
+        const result = await courierService.lookUpCouriers(data);
         return res.json(result);
     } catch (err) {
         // tslint:disable-next-line:no-console

@@ -1,5 +1,6 @@
 import dotenv from "dotenv";
 import pgPromise from "pg-promise";
+// todo: use Sequelize
 
 dotenv.config();
 const config = {
@@ -38,6 +39,17 @@ export const updateCapacity = async (payload: Courier): Promise<Courier> => {
                 WHERE id = $[id]
                 RETURNING id, max_capacity;`,
         { id: `${payload.id}`, max_capacity: `${payload.max_capacity}` });
+    return couriers
+}
+
+export const getById = async (payload: number): Promise<Courier[]> => {
+    const couriers = await db.oneOrNone(`
+        SELECT
+            id,
+            max_capacity
+        FROM  couriers
+        WHERE id = $[id]`,
+        { id: `${payload}` });
     return couriers
 }
 
