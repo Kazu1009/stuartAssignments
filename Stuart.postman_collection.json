@@ -21,7 +21,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"id\": 1234,\n\t\"max_capacity\": 5\n}"
+					"raw": "{\n\t\"id\": \"0000\",\n\t\"max_capacity\": 55\n}"
 				},
 				"description": ""
 			},
@@ -30,7 +30,7 @@
 		{
 			"name": "/couriers/lookup",
 			"request": {
-				"url": "http://localhost:3000/couriers",
+				"url": "http://localhost:3000/couriers/lookup",
 				"method": "POST",
 				"header": [
 					{
@@ -41,7 +41,47 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"id\": 1234,\n\t\"max_capacity\": 5\n}"
+					"raw": "{\n\t\"capacity_required\": 0\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/couriers",
+			"request": {
+				"url": "http://localhost:3000/couriers",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": 1234,\n\t\"max_capacity\": 10\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/couriers",
+			"request": {
+				"url": "http://localhost:3000/couriers",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": 12345\n}"
 				},
 				"description": ""
 			},
