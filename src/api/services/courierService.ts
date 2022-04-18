@@ -1,4 +1,6 @@
 import * as couriersDAL from "../../db/dal/couriers"
+import { Courier, CourierDelete, CourierGetByCapacity } from "../types/couriersType";
+import { ErrorObj } from "../types/errorsType";
 
 export class CourierService {
 

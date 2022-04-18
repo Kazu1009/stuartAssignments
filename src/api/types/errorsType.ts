@@ -1,4 +1,4 @@
-interface ErrorObj {
+export type ErrorObj = {
     code: number,
     message: string
 }

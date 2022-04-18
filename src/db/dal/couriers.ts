@@ -1,3 +1,4 @@
+import { Courier, CourierDelete } from "../../api/types/couriersType";
 import Globals from "../../globals";
 
 // todo: use Sequelize

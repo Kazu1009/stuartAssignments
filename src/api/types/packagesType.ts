@@ -1,4 +1,4 @@
-interface Package {
+export type Package = {
     id: number,
     size: number,
     assignedcourier: number,
