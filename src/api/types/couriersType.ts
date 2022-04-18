@@ -1,12 +1,12 @@
-interface Courier {
+export type Courier = {
     id: number,
     max_capacity: number
 }
 
-interface CourierGetByCapacity {
+export type CourierGetByCapacity = {
     capacity_required: number
 }
 
-interface CourierDelete {
+export type CourierDelete = {
     id: number,
 }

@@ -1,3 +1,4 @@
+import { Package } from "../../api/types/packagesType";
 import Globals from "../../globals";
 
 // todo: use Sequelize
@@ -8,8 +9,8 @@ const db = globalsInstance.getDbConnection();
 
 export const createPackage = async (packageObj: Package): Promise<Package> => {
     const newPackage = await db.one(`
-                INSERT INTO packages ( id, size, origin, destination )
-                VALUES( $[id], $[size], $[origin], $[destination] )
+                INSERT INTO packages ( id, size, assignedcourier, origin, destination )
+                VALUES( $[id], $[size], 0, $[origin], $[destination] )
                 RETURNING id, size, assignedcourier, origin, destination;`,
         { id: `${packageObj.id}`, size: `${packageObj.size}`, origin: `${packageObj.origin}`, destination: `${packageObj.destination}` });
     return newPackage

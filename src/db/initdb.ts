@@ -37,3 +37,7 @@ init().then( () => {
     // tslint:disable-next-line:no-console
     console.log( "finished with errors" );
 } );
+
+export function initdb() {
+    init();
+}
