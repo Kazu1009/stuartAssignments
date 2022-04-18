@@ -1,0 +1,14 @@
+# Set to production when deploying to production
+NODE_ENV=development
+
+# Node.js server configuration
+SERVER_PORT=3000
+
+# Postgres configuration
+PGHOST=localhost
+PGUSER=         //use your user
+PGDATABASE=     //use your db name
+PGPASSWORD=     //use your password
+PGPORT=         //use your postgres port number, 5432 by default
+
+DB_DRIVER=postgres
