@@ -1,5 +1,7 @@
 import dotenv from "dotenv";
 import pgPromise from "pg-promise";
+import { Mutex } from 'async-mutex';
+
 
 dotenv.config();
 const config = {
@@ -12,10 +14,12 @@ const pgp = pgPromise();
 class Globals {
 
     private static _instance: Globals;
-    private readonly dbConnection: any
+    private readonly dbConnection: any;
+    private readonly mutex: Mutex;
 
     private constructor() {
         this.dbConnection = pgp(config);
+        this.mutex = new Mutex();
     }
 
     static getInstance() {
@@ -29,6 +33,10 @@ class Globals {
 
     public getDbConnection(): any {
         return this.dbConnection;
+    }
+
+    public getMutex(): Mutex {
+        return this.mutex;
     }
 }
 
