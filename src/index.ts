@@ -1,6 +1,7 @@
 import express, { Application, Request, Response } from "express";
 import dotenv from "dotenv";
 import routes from "./api";
+import Globals from "./globals";
 
 dotenv.config();
 
@@ -24,6 +25,8 @@ export const get = () => {
 
 export const start = () => {
     const app = get()
+    const globalsInstance = Globals.getInstance()
+
     try {
         app.listen(port, () => {
             // tslint:disable-next-line:no-console

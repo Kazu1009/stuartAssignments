@@ -1,4 +1,4 @@
-import * as couriersDAL from "../dal/couriers"
+import * as couriersDAL from "../../db/dal/couriers"
 
 export class CourierService {
 

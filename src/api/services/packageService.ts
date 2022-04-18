@@ -1,5 +1,5 @@
-import * as packagesDAL from "../dal/packages"
-import * as couriersDAL from "../dal/couriers"
+import * as packagesDAL from "../../db/dal/packages"
+import * as couriersDAL from "../../db/dal/couriers"
 
 export class PackageService {
 
