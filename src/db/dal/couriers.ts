@@ -1,16 +1,10 @@
-import dotenv from "dotenv";
-import pgPromise from "pg-promise";
+import Globals from "../../globals";
+
 // todo: use Sequelize
 
-dotenv.config();
-const config = {
-    database: process.env.PGDATABASE,
-    host: process.env.PGHOST,
-    user: process.env.PGUSER
-};
+const globalsInstance = Globals.getInstance()
 
-const pgp = pgPromise();
-const db = pgp(config);
+const db = globalsInstance.getDbConnection();
 
 export const createCourier = async (courierObj: Courier): Promise<Courier> => {
     const couriers = await db.one(`
@@ -28,7 +22,7 @@ export const deleteCourier = async (courierObj: CourierDelete): Promise<number> 
                 DELETE FROM couriers
                 WHERE id = $[id]
                 RETURNING id`,
-        { id: `${courierObj.id}` }, (r) => r.countRow);
+        { id: `${courierObj.id}` }, (r: any) => r.countRow);
     return couriers
 }
 
