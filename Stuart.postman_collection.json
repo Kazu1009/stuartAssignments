@@ -21,7 +21,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"id\": \"0000\",\n\t\"max_capacity\": 55\n}"
+					"raw": "{\n\t\"id\": \"3\",\n\t\"max_capacity\": 20\n}"
 				},
 				"description": ""
 			},
@@ -81,7 +81,67 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"id\": 12345\n}"
+					"raw": "{\n\t\"id\": 1234\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/packages",
+			"request": {
+				"url": "http://localhost:3000/packages",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": \"0\",\n\t\"size\": 10,\n\t\"assignedcourier\": 0,\n\t\"origin\": \"abc\",\n\t\"destination\": \"xyz\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/packages/assigncourier",
+			"request": {
+				"url": "http://localhost:3000/packages/assigncourier",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": \"0\",\n\t\"size\": 10,\n\t\"assignedcourier\": null,\n\t\"from\": \"abc\",\n\t\"to\": \"xyz\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/packages/deliver",
+			"request": {
+				"url": "http://localhost:3000/packages/deliver",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": \"0\",\n\t\"size\": 10,\n\t\"assignedcourier\": 2,\n\t\"from\": \"abc\",\n\t\"to\": \"xyz\"\n}"
 				},
 				"description": ""
 			},
