@@ -28,6 +28,26 @@
 			"response": []
 		},
 		{
+			"name": "/couriers",
+			"request": {
+				"url": "http://localhost:3000/couriers/3",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
 			"name": "/couriers/lookup",
 			"request": {
 				"url": "http://localhost:3000/couriers/lookup",
@@ -108,6 +128,26 @@
 			"response": []
 		},
 		{
+			"name": "/packages",
+			"request": {
+				"url": "http://localhost:3000/packages/0",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
 			"name": "/packages/assigncourier",
 			"request": {
 				"url": "http://localhost:3000/packages/assigncourier",
@@ -142,6 +182,26 @@
 				"body": {
 					"mode": "raw",
 					"raw": "{\n\t\"id\": \"0\",\n\t\"size\": 10,\n\t\"assignedcourier\": 2,\n\t\"from\": \"abc\",\n\t\"to\": \"xyz\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/packages",
+			"request": {
+				"url": "http://localhost:3000/packages",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": \"0\",\n\t\"size\": 10,\n\t\"assignedcourier\": 0,\n\t\"origin\": \"abc\",\n\t\"destination\": \"xyz\"\n}"
 				},
 				"description": ""
 			},
